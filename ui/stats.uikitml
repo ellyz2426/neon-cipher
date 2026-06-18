@@ -1,0 +1,35 @@
+<container flexDirection="column" alignItems="center" gap="4" padding="12" backgroundColor="#0a0a1a" borderRadius="12" borderColor="#00ccff" borderWidth="1">
+  <text fontSize="20" fontWeight="bold" color="#00ffff">STATISTICS</text>
+  <container height="4"/>
+  <container flexDirection="row" gap="16" justifyContent="center">
+    <container flexDirection="column" alignItems="center">
+      <text name="stat-played" fontSize="22" fontWeight="bold" color="#ffffff">0</text>
+      <text fontSize="10" color="#888888">Played</text>
+    </container>
+    <container flexDirection="column" alignItems="center">
+      <text name="stat-winpct" fontSize="22" fontWeight="bold" color="#ffffff">0</text>
+      <text fontSize="10" color="#888888">Win %</text>
+    </container>
+    <container flexDirection="column" alignItems="center">
+      <text name="stat-streak" fontSize="22" fontWeight="bold" color="#ffffff">0</text>
+      <text fontSize="10" color="#888888">Streak</text>
+    </container>
+    <container flexDirection="column" alignItems="center">
+      <text name="stat-best" fontSize="22" fontWeight="bold" color="#ffffff">0</text>
+      <text fontSize="10" color="#888888">Best</text>
+    </container>
+  </container>
+  <container height="4"/>
+  <text fontSize="14" fontWeight="bold" color="#00ccff">GUESS DISTRIBUTION</text>
+  <text name="dist-1" fontSize="12" color="#88aacc">1: -----  0</text>
+  <text name="dist-2" fontSize="12" color="#88aacc">2: -----  0</text>
+  <text name="dist-3" fontSize="12" color="#88aacc">3: -----  0</text>
+  <text name="dist-4" fontSize="12" color="#88aacc">4: -----  0</text>
+  <text name="dist-5" fontSize="12" color="#88aacc">5: -----  0</text>
+  <text name="dist-6" fontSize="12" color="#88aacc">6: -----  0</text>
+  <container height="4"/>
+  <text name="stat-avg" fontSize="12" color="#666688">Avg guesses: --</text>
+  <text name="stat-time" fontSize="12" color="#666688">Avg time: --</text>
+  <container height="4"/>
+  <text name="btn-back" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="20" paddingRight="20" borderRadius="4" cursor="pointer">BACK</text>
+</container>

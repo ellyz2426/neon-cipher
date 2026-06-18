@@ -1,0 +1,6 @@
+<container flexDirection="row" gap="12" padding="6" paddingLeft="12" paddingRight="12" backgroundColor="#0a0a1aaa" borderRadius="6">
+  <text name="mode-label" fontSize="14" fontWeight="bold" color="#00ccff">RANDOM</text>
+  <text name="timer-label" fontSize="14" color="#ffcc00">--:--</text>
+  <text name="attempt-label" fontSize="14" color="#88aacc">Row 1/6</text>
+  <text name="streak-label" fontSize="14" color="#cc66ff">x0</text>
+</container>

@@ -1,0 +1,36 @@
+<container flexDirection="column" alignItems="center" gap="3" padding="8" backgroundColor="#0a0a1a" borderRadius="8" borderColor="#00ccff" borderWidth="1">
+  <container flexDirection="row" gap="3" justifyContent="center">
+    <text name="k-q" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">Q</text>
+    <text name="k-w" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">W</text>
+    <text name="k-e" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">E</text>
+    <text name="k-r" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">R</text>
+    <text name="k-t" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">T</text>
+    <text name="k-y" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">Y</text>
+    <text name="k-u" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">U</text>
+    <text name="k-i" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">I</text>
+    <text name="k-o" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">O</text>
+    <text name="k-p" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">P</text>
+  </container>
+  <container flexDirection="row" gap="3" justifyContent="center">
+    <text name="k-a" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">A</text>
+    <text name="k-s" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">S</text>
+    <text name="k-d" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">D</text>
+    <text name="k-f" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">F</text>
+    <text name="k-g" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">G</text>
+    <text name="k-h" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">H</text>
+    <text name="k-j" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">J</text>
+    <text name="k-k" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">K</text>
+    <text name="k-l" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">L</text>
+  </container>
+  <container flexDirection="row" gap="3" justifyContent="center">
+    <text name="k-enter" fontSize="14" fontWeight="bold" color="#00ffcc" backgroundColor="#1a3a2a" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" borderColor="#00aa66" borderWidth="1" cursor="pointer">ENTER</text>
+    <text name="k-z" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">Z</text>
+    <text name="k-x" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">X</text>
+    <text name="k-c" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">C</text>
+    <text name="k-v" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">V</text>
+    <text name="k-b" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">B</text>
+    <text name="k-n" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">N</text>
+    <text name="k-m" fontSize="18" fontWeight="bold" color="#ffffff" backgroundColor="#333355" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">M</text>
+    <text name="k-back" fontSize="14" fontWeight="bold" color="#ff6644" backgroundColor="#3a1a1a" padding="4" paddingLeft="8" paddingRight="8" borderRadius="4" borderColor="#aa4422" borderWidth="1" cursor="pointer">DEL</text>
+  </container>
+</container>

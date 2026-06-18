@@ -1,0 +1,44 @@
+<container flexDirection="column" alignItems="center" gap="4" padding="10" backgroundColor="#0a0a1a" borderRadius="10" borderColor="#00ccff" borderWidth="1">
+  <container flexDirection="row" gap="4" justifyContent="center">
+    <text name="c00" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c01" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c02" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c03" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c04" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+  </container>
+  <container flexDirection="row" gap="4" justifyContent="center">
+    <text name="c10" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c11" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c12" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c13" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c14" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+  </container>
+  <container flexDirection="row" gap="4" justifyContent="center">
+    <text name="c20" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c21" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c22" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c23" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c24" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+  </container>
+  <container flexDirection="row" gap="4" justifyContent="center">
+    <text name="c30" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c31" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c32" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c33" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c34" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+  </container>
+  <container flexDirection="row" gap="4" justifyContent="center">
+    <text name="c40" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c41" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c42" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c43" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c44" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+  </container>
+  <container flexDirection="row" gap="4" justifyContent="center">
+    <text name="c50" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c51" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c52" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c53" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+    <text name="c54" fontSize="28" fontWeight="bold" color="#ffffff" backgroundColor="#222233" padding="6" paddingLeft="12" paddingRight="12" borderRadius="4" borderColor="#444466" borderWidth="1"> </text>
+  </container>
+</container>

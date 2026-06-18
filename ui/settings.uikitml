@@ -1,0 +1,31 @@
+<container flexDirection="column" alignItems="center" gap="6" padding="12" backgroundColor="#0a0a1a" borderRadius="12" borderColor="#00ccff" borderWidth="1">
+  <text fontSize="20" fontWeight="bold" color="#00ffff">SETTINGS</text>
+  <container height="4"/>
+  <container flexDirection="row" gap="6" alignItems="center">
+    <text fontSize="14" color="#88aacc">Master</text>
+    <text name="btn-master-down" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">-</text>
+    <text name="master-vol" fontSize="14" color="#ffffff">100</text>
+    <text name="btn-master-up" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">+</text>
+  </container>
+  <container flexDirection="row" gap="6" alignItems="center">
+    <text fontSize="14" color="#88aacc">SFX   </text>
+    <text name="btn-sfx-down" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">-</text>
+    <text name="sfx-vol" fontSize="14" color="#ffffff">100</text>
+    <text name="btn-sfx-up" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">+</text>
+  </container>
+  <container flexDirection="row" gap="6" alignItems="center">
+    <text fontSize="14" color="#88aacc">Music </text>
+    <text name="btn-music-down" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">-</text>
+    <text name="music-vol" fontSize="14" color="#ffffff">100</text>
+    <text name="btn-music-up" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">+</text>
+  </container>
+  <container height="4"/>
+  <container flexDirection="row" gap="6" alignItems="center">
+    <text fontSize="14" color="#88aacc">Theme</text>
+    <text name="btn-theme-prev" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer"><</text>
+    <text name="theme-name" fontSize="14" color="#ffffff">Neon Holodeck</text>
+    <text name="btn-theme-next" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">></text>
+  </container>
+  <container height="6"/>
+  <text name="btn-back" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="20" paddingRight="20" borderRadius="4" cursor="pointer">BACK</text>
+</container>

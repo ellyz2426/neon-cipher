@@ -1,0 +1,25 @@
+<container flexDirection="column" alignItems="center" gap="4" padding="12" backgroundColor="#0a0a1a" borderRadius="12" borderColor="#00ccff" borderWidth="1">
+  <text fontSize="20" fontWeight="bold" color="#00ffff">HOW TO PLAY</text>
+  <container height="2"/>
+  <text fontSize="12" color="#ccccdd">Guess the 5-letter word in 6 tries.</text>
+  <text fontSize="12" color="#ccccdd">After each guess, tiles change color:</text>
+  <container height="2"/>
+  <text fontSize="12" color="#00ff88">GREEN = correct letter, correct spot</text>
+  <text fontSize="12" color="#ffcc00">YELLOW = correct letter, wrong spot</text>
+  <text fontSize="12" color="#666688">GRAY = letter not in the word</text>
+  <container height="4"/>
+  <text fontSize="14" fontWeight="bold" color="#00ccff">CONTROLS</text>
+  <text fontSize="11" color="#ccccdd">Browser: type letters, Enter, Backspace</text>
+  <text fontSize="11" color="#ccccdd">VR: point at keyboard, trigger to click</text>
+  <text fontSize="11" color="#ccccdd">ESC or B = Pause</text>
+  <container height="4"/>
+  <text fontSize="14" fontWeight="bold" color="#00ccff">MODES</text>
+  <text fontSize="11" color="#00ffcc">Random - new word each game</text>
+  <text fontSize="11" color="#ffcc00">Daily - same word for everyone today</text>
+  <text fontSize="11" color="#ff6644">Speed - 2 minute time limit</text>
+  <text fontSize="11" color="#cc66ff">Streak - consecutive wins</text>
+  <text fontSize="11" color="#ff4444">Hard - must use confirmed hints</text>
+  <text fontSize="11" color="#88cc88">Practice - unlimited hints</text>
+  <container height="4"/>
+  <text name="btn-back" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="20" paddingRight="20" borderRadius="4" cursor="pointer">BACK</text>
+</container>

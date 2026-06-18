@@ -1,0 +1,12 @@
+<container flexDirection="column" alignItems="center" gap="6" padding="14" backgroundColor="#0a0a1a" borderRadius="12" borderColor="#00ccff" borderWidth="1">
+  <text name="result-title" fontSize="26" fontWeight="bold" color="#00ff88">DECODED!</text>
+  <text name="answer-label" fontSize="20" fontWeight="bold" color="#ffcc00">CRANE</text>
+  <container height="4"/>
+  <text name="guesses-label" fontSize="14" color="#88aacc">Guesses: 3/6</text>
+  <text name="time-label" fontSize="14" color="#88aacc">Time: 1:24</text>
+  <text name="streak-label" fontSize="14" color="#cc66ff">Streak: 5</text>
+  <text name="xp-label" fontSize="14" color="#00ccff">+120 XP</text>
+  <container height="6"/>
+  <text name="btn-again" fontSize="16" fontWeight="bold" color="#00ffcc" backgroundColor="#1a3a2a" padding="6" paddingLeft="24" paddingRight="24" borderRadius="6" borderColor="#00aa66" borderWidth="1" cursor="pointer">PLAY AGAIN</text>
+  <text name="btn-menu" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="20" paddingRight="20" borderRadius="4" cursor="pointer">MENU</text>
+</container>
