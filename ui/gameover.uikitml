@@ -1,12 +1,38 @@
 <container flexDirection="column" alignItems="center" gap="6" padding="14" backgroundColor="#0a0a1a" borderRadius="12" borderColor="#00ccff" borderWidth="1">
   <text name="result-title" fontSize="26" fontWeight="bold" color="#00ff88">DECODED!</text>
   <text name="answer-label" fontSize="20" fontWeight="bold" color="#ffcc00">CRANE</text>
-  <container height="4"/>
-  <text name="guesses-label" fontSize="14" color="#88aacc">Guesses: 3/6</text>
-  <text name="time-label" fontSize="14" color="#88aacc">Time: 1:24</text>
-  <text name="streak-label" fontSize="14" color="#cc66ff">Streak: 5</text>
-  <text name="xp-label" fontSize="14" color="#00ccff">+120 XP</text>
-  <container height="6"/>
-  <text name="btn-again" fontSize="16" fontWeight="bold" color="#00ffcc" backgroundColor="#1a3a2a" padding="6" paddingLeft="24" paddingRight="24" borderRadius="6" borderColor="#00aa66" borderWidth="1" cursor="pointer">PLAY AGAIN</text>
-  <text name="btn-menu" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="20" paddingRight="20" borderRadius="4" cursor="pointer">MENU</text>
+  <text name="mode-info" fontSize="12" color="#888888">Mode: RANDOM</text>
+  <container height="2"/>
+  <container flexDirection="row" gap="16" justifyContent="center">
+    <container flexDirection="column" alignItems="center">
+      <text name="guesses-val" fontSize="16" fontWeight="bold" color="#88aacc">3/6</text>
+      <text fontSize="9" color="#666688">Guesses</text>
+    </container>
+    <container flexDirection="column" alignItems="center">
+      <text name="time-val" fontSize="16" fontWeight="bold" color="#88aacc">1:24</text>
+      <text fontSize="9" color="#666688">Time</text>
+    </container>
+    <container flexDirection="column" alignItems="center">
+      <text name="streak-val" fontSize="16" fontWeight="bold" color="#cc66ff">5</text>
+      <text fontSize="9" color="#666688">Streak</text>
+    </container>
+    <container flexDirection="column" alignItems="center">
+      <text name="xp-val" fontSize="16" fontWeight="bold" color="#00ccff">+120</text>
+      <text fontSize="9" color="#666688">XP</text>
+    </container>
+  </container>
+  <text name="diff-label" fontSize="12" color="#888888">Difficulty: Medium</text>
+  <text name="words-remaining" fontSize="11" color="#44aa88">Words remaining: 12</text>
+  <text name="mode-record" fontSize="11" color="#666688">Mode best: --</text>
+  <container height="2"/>
+  <text name="share-text" fontSize="11" color="#666688" fontFamily="monospace">--</text>
+  <container height="2"/>
+  <container flexDirection="row" gap="8">
+    <text name="btn-share" fontSize="14" color="#00ccff" backgroundColor="#1a2a3a" padding="4" paddingLeft="16" paddingRight="16" borderRadius="4" borderColor="#0088aa" borderWidth="1" cursor="pointer">COPY SHARE</text>
+    <text name="btn-again" fontSize="14" fontWeight="bold" color="#00ffcc" backgroundColor="#1a3a2a" padding="4" paddingLeft="16" paddingRight="16" borderRadius="6" borderColor="#00aa66" borderWidth="1" cursor="pointer">PLAY AGAIN</text>
+  </container>
+  <container flexDirection="row" gap="8">
+    <text name="btn-history" fontSize="12" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="14" paddingRight="14" borderRadius="4" cursor="pointer">HISTORY</text>
+    <text name="btn-menu" fontSize="12" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="14" paddingRight="14" borderRadius="4" cursor="pointer">MENU</text>
+  </container>
 </container>

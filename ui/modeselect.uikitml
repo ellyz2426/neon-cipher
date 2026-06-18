@@ -1,12 +1,15 @@
 <container flexDirection="column" alignItems="center" gap="6" padding="14" backgroundColor="#0a0a1a" borderRadius="12" borderColor="#00ccff" borderWidth="1">
   <text fontSize="22" fontWeight="bold" color="#00ffff">SELECT MODE</text>
-  <container height="4"/>
+  <container height="2"/>
   <text name="btn-random" fontSize="16" color="#00ffcc" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#00aa88" borderWidth="1" cursor="pointer">RANDOM</text>
   <text name="btn-daily" fontSize="16" color="#ffcc00" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#aa8800" borderWidth="1" cursor="pointer">DAILY CIPHER</text>
   <text name="btn-speed" fontSize="16" color="#ff6644" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#aa4422" borderWidth="1" cursor="pointer">SPEED (2 MIN)</text>
+  <text name="btn-blitz" fontSize="16" color="#ff3388" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#aa2266" borderWidth="1" cursor="pointer">BLITZ (30 SEC)</text>
   <text name="btn-streak" fontSize="16" color="#cc66ff" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#8844aa" borderWidth="1" cursor="pointer">STREAK</text>
   <text name="btn-hard" fontSize="16" color="#ff4444" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#aa2222" borderWidth="1" cursor="pointer">HARD MODE</text>
+  <text name="btn-blind" fontSize="16" color="#666666" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#444444" borderWidth="1" cursor="pointer">BLIND (NO COLORS)</text>
   <text name="btn-practice" fontSize="16" color="#88cc88" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#448844" borderWidth="1" cursor="pointer">PRACTICE</text>
-  <container height="4"/>
+  <text name="btn-zen" fontSize="16" color="#aaccee" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#6688aa" borderWidth="1" cursor="pointer">ZEN (RELAXED)</text>
+  <container height="2"/>
   <text name="btn-back" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="20" paddingRight="20" borderRadius="4" cursor="pointer">BACK</text>
 </container>

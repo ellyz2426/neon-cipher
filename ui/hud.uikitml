@@ -3,4 +3,6 @@
   <text name="timer-label" fontSize="14" color="#ffcc00">--:--</text>
   <text name="attempt-label" fontSize="14" color="#88aacc">Row 1/6</text>
   <text name="streak-label" fontSize="14" color="#cc66ff">x0</text>
+  <text name="words-left" fontSize="12" color="#44aa88">~400</text>
+  <text name="hint-btn" fontSize="12" color="#ffaa00" backgroundColor="#2a2a1a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">HINT</text>
 </container>
