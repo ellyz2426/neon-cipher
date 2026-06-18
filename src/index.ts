@@ -209,7 +209,7 @@ const VALID_SET = new Set([...ANSWERS, ...EXTRA_VALID]);
 
 // --- TYPES & CONSTANTS ---
 type GameScreen = 'title' | 'modeselect' | 'playing' | 'gameover' | 'stats' | 'achievements' | 'settings' | 'help' | 'leaderboard' | 'pause' | 'countdown' | 'history';
-type GameMode = 'random' | 'daily' | 'speed' | 'blitz' | 'streak' | 'hard' | 'blind' | 'practice' | 'zen';
+type GameMode = 'random' | 'daily' | 'speed' | 'blitz' | 'streak' | 'hard' | 'blind' | 'practice' | 'zen' | 'elimination';
 type LetterResult = 'correct' | 'present' | 'absent' | 'empty';
 
 interface GuessResult { letter: string; result: LetterResult; }
@@ -234,6 +234,8 @@ const THEMES = [
   { name: 'Amber Matrix', grid: '#cc8800', accent: '#ffaa44', bg: '#100800', fog: '#0a0600', wall: '#332200', correct: '#00cc44', present: '#ccaa00', absent: '#333322' },
   { name: 'Deep Ocean', grid: '#0066cc', accent: '#3399ff', bg: '#020810', fog: '#000410', wall: '#001144', correct: '#00cc44', present: '#ccaa00', absent: '#222244' },
   { name: 'Cherry Blossom', grid: '#ff88aa', accent: '#ffbbcc', bg: '#0f0508', fog: '#0a0004', wall: '#331122', correct: '#00cc44', present: '#ccaa00', absent: '#332233' },
+  { name: 'Electric Storm', grid: '#ffee00', accent: '#ffff66', bg: '#0a0a05', fog: '#080800', wall: '#222200', correct: '#00cc44', present: '#ccaa00', absent: '#333322' },
+  { name: 'Frost Matrix', grid: '#aaddff', accent: '#ccefff', bg: '#050a10', fog: '#020818', wall: '#0a2244', correct: '#00cc44', present: '#ccaa00', absent: '#223344' },
 ];
 
 const TITLES = ['Novice','Beginner','Speller','Decoder','Cipher','Linguist','Scholar','Expert','Master','Sage',
@@ -324,7 +326,7 @@ const ACHIEVEMENTS_DEF: { id: string; name: string; desc: string }[] = [
   { id: 'lvl_25', name: 'Skilled', desc: 'Reach level 25' },
   { id: 'lvl_50', name: 'NEON GOD', desc: 'Reach level 50' },
   // Modes
-  { id: 'all_modes', name: 'Explorer', desc: 'Win in all 8 modes' },
+  { id: 'all_modes', name: 'Explorer', desc: 'Win in 8 different modes' },
   { id: 'four_modes', name: 'Versatile', desc: 'Win in 4 different modes' },
   // Themes
   { id: 'theme_all', name: 'Decorator', desc: 'Try all themes' },
@@ -381,6 +383,33 @@ const ACHIEVEMENTS_DEF: { id: string; name: string; desc: string }[] = [
   { id: 'daily_streak_14', name: 'Two Weeks', desc: '14-day daily streak' },
   // Perfect games
   { id: 'perfect_streak_3', name: 'Flawless', desc: '3 first-guess wins' },
+  // Elimination mode
+  { id: 'elim_win', name: 'Survivor', desc: 'Win Elimination mode' },
+  { id: 'elim_3', name: 'Endurance', desc: '3 Elimination wins' },
+  { id: 'elim_no_loss', name: 'Untouchable', desc: 'Elim win with 0 wrong letters removed' },
+  { id: 'elim_5_removed', name: 'Against Odds', desc: 'Win Elim with 5+ letters removed' },
+  { id: 'elim_10', name: 'Elimination Expert', desc: '10 Elimination wins' },
+  // All 10 modes
+  { id: 'all_10_modes', name: 'Completionist', desc: 'Win in all 10 modes' },
+  // Pattern mastery
+  { id: 'win_no_common', name: 'Off the Beaten Path', desc: 'Win without using E,A,R,I,O,T' },
+  { id: 'all_vowel_first', name: 'Vowel Rush', desc: 'First guess uses all vowels AEIOU' },
+  { id: 'five_in_session', name: 'Power Hour', desc: '5 wins in one session' },
+  { id: 'ten_in_session', name: 'Grinding', desc: '10 wins in one session' },
+  // Streak + speed combos
+  { id: 'streak_fast', name: 'Speed Streak', desc: '3 wins under 60s each' },
+  { id: 'diverse_streak', name: 'Mode Hopper', desc: 'Win 5 different modes in one session' },
+  // Advanced scoring
+  { id: 'score_700', name: 'Perfect Score', desc: 'Score 700+ in one game' },
+  { id: 'total_wins_1000', name: 'Millennial', desc: '1000 total wins' },
+  // Letter mastery
+  { id: 'all_green_twice', name: 'Double Oracle', desc: '2 first-guess wins ever' },
+  { id: 'no_absent_win', name: 'Clean Sweep', desc: 'Win with no absent letters' },
+  // Time mastery
+  { id: 'fast_5', name: 'Blink', desc: 'Win under 5 seconds' },
+  { id: 'slow_win', name: 'Patient', desc: 'Win taking over 5 minutes' },
+  // Colorblind
+  { id: 'colorblind_win', name: 'Accessible', desc: 'Win with colorblind mode on' },
 ];
 
 // --- SEEDED PRNG ---
@@ -510,6 +539,18 @@ function loadThemeWins(): Set<number> {
   return new Set();
 }
 function saveThemeWins(t: Set<number>) { try { localStorage.setItem(STORAGE_KEY + '-theme-wins', JSON.stringify([...t])); } catch {} }
+function loadElimWins(): number { try { const raw = localStorage.getItem(STORAGE_KEY + '-elim-wins'); if (raw) return parseInt(raw); } catch {} return 0; }
+function saveElimWins(n: number) { try { localStorage.setItem(STORAGE_KEY + '-elim-wins', String(n)); } catch {} }
+function loadColorblindMode(): boolean { try { return localStorage.getItem(STORAGE_KEY + '-colorblind') === 'true'; } catch { return false; } }
+function saveColorblindMode(v: boolean) { try { localStorage.setItem(STORAGE_KEY + '-colorblind', String(v)); } catch {} }
+function loadPracticeDifficulty(): string { try { return localStorage.getItem(STORAGE_KEY + '-practice-diff') || 'Any'; } catch { return 'Any'; } }
+function savePracticeDifficulty(d: string) { try { localStorage.setItem(STORAGE_KEY + '-practice-diff', d); } catch {} }
+function loadFirstGuessTotal(): number { try { const raw = localStorage.getItem(STORAGE_KEY + '-first-total'); if (raw) return parseInt(raw); } catch {} return 0; }
+function saveFirstGuessTotal(n: number) { try { localStorage.setItem(STORAGE_KEY + '-first-total', String(n)); } catch {} }
+function loadSessionWins(): number { try { const raw = localStorage.getItem(STORAGE_KEY + '-session-wins'); if (raw) return parseInt(raw); } catch {} return 0; }
+function saveSessionWins(n: number) { try { localStorage.setItem(STORAGE_KEY + '-session-wins', String(n)); } catch {} }
+function loadFastWinStreak(): number { try { const raw = localStorage.getItem(STORAGE_KEY + '-fast-streak'); if (raw) return parseInt(raw); } catch {} return 0; }
+function saveFastWinStreak(n: number) { try { localStorage.setItem(STORAGE_KEY + '-fast-streak', String(n)); } catch {} }
 
 // --- REMAINING WORDS FILTER ---
 function getPossibleWords(guesses: string[], target: string): string[] {
@@ -794,6 +835,14 @@ class NeonCipherSystem extends createSystem({
   private historyPage = 0;
   private themeIdx = loadThemeIdx();
   private hasShared = false;
+  private elimWins = loadElimWins();
+  private elimRemovedCount = 0;
+  private elimDisabledLetters = new Set<string>();
+  private colorblindMode = loadColorblindMode();
+  private practiceDifficulty = loadPracticeDifficulty();
+  private firstGuessTotal = loadFirstGuessTotal();
+  private sessionWinCount = 0;
+  private fastWinStreak = loadFastWinStreak();
 
   // Environment refs
   private envMeshes: Mesh[] = [];
@@ -880,6 +929,7 @@ class NeonCipherSystem extends createSystem({
         btn('btn-blind', () => this.startCountdown('blind'));
         btn('btn-practice', () => this.startCountdown('practice'));
         btn('btn-zen', () => this.startCountdown('zen'));
+        btn('btn-elimination', () => this.startCountdown('elimination'));
         btn('btn-back', () => this.setScreen('title'));
         break;
       case 'kb':
@@ -913,6 +963,8 @@ class NeonCipherSystem extends createSystem({
         btn('btn-music-down', () => this.adjustVolume('music', -10));
         btn('btn-theme-next', () => this.cycleTheme(1));
         btn('btn-theme-prev', () => this.cycleTheme(-1));
+        btn('btn-colorblind', () => this.toggleColorblind());
+        btn('btn-diff-next', () => this.cyclePracticeDifficulty());
         this.refreshSettings();
         break;
       case 'help':
@@ -1000,6 +1052,8 @@ class NeonCipherSystem extends createSystem({
     this.sessionModesPlayed.add(mode);
     this.possibleWordsCount = ANSWERS.length;
     this.speedTimeLeft = mode === 'blitz' ? 30 : 120;
+    this.elimRemovedCount = 0;
+    this.elimDisabledLetters.clear();
 
     // Track first-time mode plays
     if (mode === 'blitz') this.unlockAch('first_blitz');
@@ -1013,6 +1067,10 @@ class NeonCipherSystem extends createSystem({
         this.setScreen('title');
         return;
       }
+    } else if (mode === 'practice' && this.practiceDifficulty !== 'Any') {
+      // Filter words by difficulty
+      const filtered = ANSWERS.filter(w => getWordDifficulty(w) === this.practiceDifficulty);
+      this.targetWord = filtered.length > 0 ? filtered[Math.floor(Math.random() * filtered.length)] : ANSWERS[Math.floor(Math.random() * ANSWERS.length)];
     } else {
       this.targetWord = ANSWERS[Math.floor(Math.random() * ANSWERS.length)];
     }
@@ -1216,6 +1274,31 @@ class NeonCipherSystem extends createSystem({
       this.updateKeyboardColors();
     }
 
+    // Elimination mode: after a non-winning guess, disable random unused keyboard letters
+    if (this.gameMode === 'elimination') {
+      const allCorrect = results.every(r => r.result === 'correct');
+      if (!allCorrect) {
+        const usedLetters = new Set<string>();
+        for (const g of this.guesses) for (const c of g) usedLetters.add(c);
+        for (const c of this.targetWord) usedLetters.add(c);
+        const available = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').filter(
+          l => !usedLetters.has(l) && !this.elimDisabledLetters.has(l) && !this.letterStatus[l]
+        );
+        const removeCount = Math.min(2, available.length);
+        for (let i = 0; i < removeCount; i++) {
+          const idx = Math.floor(Math.random() * available.length);
+          const letter = available.splice(idx, 1)[0];
+          this.elimDisabledLetters.add(letter);
+          this.elimRemovedCount++;
+          this.letterStatus[letter] = 'absent';
+        }
+        if (removeCount > 0) {
+          this.updateKeyboardColors();
+          this.showToast(`${removeCount} letter${removeCount > 1 ? 's' : ''} eliminated!`);
+        }
+      }
+    }
+
     const allCorrect = results.every(r => r.result === 'correct');
     if (allCorrect) { this.won = true; this.gameOver = true; this.onGameEnd(); }
     else if (this.currentRow >= 6) { this.won = false; this.gameOver = true; this.onGameEnd(); }
@@ -1227,7 +1310,13 @@ class NeonCipherSystem extends createSystem({
     const theme = THEMES[this.themeIdx];
     for (const [letter, status] of Object.entries(this.letterStatus)) {
       const color = status === 'correct' ? theme.correct : status === 'present' ? theme.present : theme.absent;
-      this.setProps(e, 'k-' + letter.toLowerCase(), { backgroundColor: color });
+      // Colorblind mode: add symbol prefix to letter
+      if (this.colorblindMode) {
+        const prefix = status === 'correct' ? '+ ' : status === 'present' ? '? ' : 'x ';
+        this.setProps(e, 'k-' + letter.toLowerCase(), { backgroundColor: color, text: prefix + letter });
+      } else {
+        this.setProps(e, 'k-' + letter.toLowerCase(), { backgroundColor: color });
+      }
     }
   }
 
@@ -1311,6 +1400,17 @@ class NeonCipherSystem extends createSystem({
     if (this.gameMode === 'streak' && this.won) { this.streakModeWins++; saveStreakModeWins(this.streakModeWins); }
     if (this.gameMode === 'blind' && this.won) { this.blindWins++; saveBlindWins(this.blindWins); }
     if (this.gameMode === 'zen' && this.won) { this.zenWins++; saveZenWins(this.zenWins); }
+    if (this.gameMode === 'elimination' && this.won) { this.elimWins++; saveElimWins(this.elimWins); }
+
+    // Session wins tracking
+    if (this.won) { this.sessionWinCount++; }
+
+    // Fast win streak (under 60s)
+    if (this.won && this.elapsed < 60) { this.fastWinStreak++; saveFastWinStreak(this.fastWinStreak); }
+    else { this.fastWinStreak = 0; saveFastWinStreak(0); }
+
+    // First-guess total
+    if (this.won && guessCount === 1) { this.firstGuessTotal++; saveFirstGuessTotal(this.firstGuessTotal); }
 
     // Per-mode stats
     if (!this.modeStats[this.gameMode]) { this.modeStats[this.gameMode] = { played: 0, won: 0, bestGuesses: 0, bestTime: 0 }; }
@@ -1351,7 +1451,7 @@ class NeonCipherSystem extends createSystem({
     this.setText(e, 'result-title', this.won ? 'DECODED!' : 'FAILED');
     this.setProps(e, 'result-title', { color: this.won ? '#00ff88' : '#ff4444' });
     this.setText(e, 'answer-label', this.targetWord);
-    const modeNames2: Record<GameMode, string> = { random: 'Random', daily: 'Daily', speed: 'Speed', blitz: 'Blitz', streak: 'Streak', hard: 'Hard', blind: 'Blind', practice: 'Practice', zen: 'Zen' };
+    const modeNames2: Record<GameMode, string> = { random: 'Random', daily: 'Daily', speed: 'Speed', blitz: 'Blitz', streak: 'Streak', hard: 'Hard', blind: 'Blind', practice: 'Practice', zen: 'Zen', elimination: 'Elimination' };
     this.setText(e, 'mode-info', `Mode: ${modeNames2[this.gameMode]}`);
     this.setText(e, 'guesses-val', `${this.guesses.length}/6`);
     const mins = Math.floor(this.elapsed / 60);
@@ -1362,6 +1462,21 @@ class NeonCipherSystem extends createSystem({
     this.setText(e, 'xp-val', `+${xp}`);
     this.setText(e, 'diff-label', `Difficulty: ${getWordDifficulty(this.targetWord)}`);
     this.setText(e, 'words-remaining', `Words remaining: ${this.possibleWordsCount}`);
+
+    // Word analysis
+    const uniqueLetters = new Set(this.targetWord.split('')).size;
+    const vowelCount = this.targetWord.split('').filter(l => 'AEIOU'.includes(l)).length;
+    const commonLetters = 'EARIOT';
+    const commonCount = this.targetWord.split('').filter(l => commonLetters.includes(l)).length;
+    const analysisText = `Letters: ${uniqueLetters} unique | ${vowelCount} vowels | ${commonCount} common`;
+    this.setText(e, 'word-analysis', analysisText);
+
+    // Elimination info
+    if (this.gameMode === 'elimination') {
+      this.setText(e, 'elim-info', `Letters eliminated: ${this.elimRemovedCount}`);
+    } else {
+      this.setText(e, 'elim-info', '');
+    }
     // Mode best
     const ms = this.modeStats[this.gameMode];
     const modeBest = ms && ms.bestGuesses > 0 ? `Best: ${ms.bestGuesses}/6 in ${ms.bestTime}s` : 'No record yet';
@@ -1510,13 +1625,60 @@ class NeonCipherSystem extends createSystem({
       if (gc <= 2) unlock('zen_first_try');
     }
 
+    // Elimination
+    if (this.gameMode === 'elimination' && this.won) {
+      unlock('elim_win');
+      if (this.elimWins >= 3) unlock('elim_3');
+      if (this.elimWins >= 10) unlock('elim_10');
+      if (this.elimRemovedCount === 0) unlock('elim_no_loss');
+      if (this.elimRemovedCount >= 5) unlock('elim_5_removed');
+    }
+
+    // All 10 modes
+    if (this.modesWon.size >= 10) unlock('all_10_modes');
+
     // Score-based
     if (this.won) {
       const score = Math.round((7 - gc) * 100 + Math.max(0, 300 - this.elapsed));
       if (score >= 500) unlock('score_500');
       if (score >= 600) unlock('score_600');
+      if (score >= 700) unlock('score_700');
       if (this.elapsed < 10) unlock('fast_10');
+      if (this.elapsed < 5) unlock('fast_5');
+      if (this.elapsed > 300) unlock('slow_win');
     }
+
+    // Pattern achievements
+    if (this.won) {
+      const firstGuess = this.guesses[0];
+      const commonLetters = 'EARIOT';
+      const usesNoCommon = !firstGuess.split('').some(l => commonLetters.includes(l));
+      if (usesNoCommon && gc <= 3) unlock('win_no_common');
+      const vowels = 'AEIOU';
+      const firstHasAllVowels = vowels.split('').every(v => firstGuess.includes(v));
+      if (firstHasAllVowels) unlock('all_vowel_first');
+      // No absent letters in the game
+      const allResults = this.guesses.map(g => evaluateGuess(g, this.targetWord));
+      const hasAnyAbsent = allResults.some(r => r.some(c => c.result === 'absent'));
+      if (!hasAnyAbsent) unlock('no_absent_win');
+    }
+
+    // Session wins
+    if (this.sessionWinCount >= 5) unlock('five_in_session');
+    if (this.sessionWinCount >= 10) unlock('ten_in_session');
+    if (this.sessionModesPlayed.size >= 5 && this.sessionWinCount >= 5) unlock('diverse_streak');
+
+    // Fast win streak
+    if (this.fastWinStreak >= 3) unlock('streak_fast');
+
+    // Total wins
+    if (this.stats.gamesWon >= 1000) unlock('total_wins_1000');
+
+    // First-guess total
+    if (this.firstGuessTotal >= 2) unlock('all_green_twice');
+
+    // Colorblind win
+    if (this.colorblindMode && this.won) unlock('colorblind_win');
   }
 
   // --- UI REFRESH ---
@@ -1548,8 +1710,8 @@ class NeonCipherSystem extends createSystem({
     this.setText(e, 'stat-avg', `Avg guesses: ${avgGuesses}`);
     this.setText(e, 'stat-time', `Avg time: ${avgTime > 0 ? avgTime + 's' : '--'}`);
     // Mode records
-    const allModes: GameMode[] = ['random', 'daily', 'speed', 'blitz', 'hard', 'blind', 'streak', 'practice', 'zen'];
-    const modeLabels: Record<string, string> = { random: 'Random', daily: 'Daily', speed: 'Speed', blitz: 'Blitz', hard: 'Hard', blind: 'Blind', streak: 'Streak', practice: 'Practice', zen: 'Zen' };
+    const allModes: GameMode[] = ['random', 'daily', 'speed', 'blitz', 'hard', 'blind', 'streak', 'practice', 'zen', 'elimination'];
+    const modeLabels: Record<string, string> = { random: 'Random', daily: 'Daily', speed: 'Speed', blitz: 'Blitz', hard: 'Hard', blind: 'Blind', streak: 'Streak', practice: 'Practice', zen: 'Zen', elimination: 'Elim' };
     allModes.forEach((mode, i) => {
       const ms = this.modeStats[mode];
       if (ms && ms.played > 0) {
@@ -1623,6 +1785,8 @@ class NeonCipherSystem extends createSystem({
     this.setText(e, 'sfx-vol', String(audio.volumes.sfx));
     this.setText(e, 'music-vol', String(audio.volumes.music));
     this.setText(e, 'theme-name', THEMES[this.themeIdx].name);
+    this.setText(e, 'colorblind-val', this.colorblindMode ? 'ON' : 'OFF');
+    this.setText(e, 'diff-val', this.practiceDifficulty);
   }
 
   private adjustVolume(type: 'master' | 'sfx' | 'music', delta: number) {
@@ -1639,10 +1803,25 @@ class NeonCipherSystem extends createSystem({
     this.refreshSettings();
   }
 
+  private toggleColorblind() {
+    this.colorblindMode = !this.colorblindMode;
+    saveColorblindMode(this.colorblindMode);
+    this.refreshSettings();
+    this.showToast(`Colorblind mode: ${this.colorblindMode ? 'ON' : 'OFF'}`);
+  }
+
+  private cyclePracticeDifficulty() {
+    const diffs = ['Any', 'Easy', 'Medium', 'Hard', 'Expert'];
+    const idx = diffs.indexOf(this.practiceDifficulty);
+    this.practiceDifficulty = diffs[(idx + 1) % diffs.length];
+    savePracticeDifficulty(this.practiceDifficulty);
+    this.refreshSettings();
+  }
+
   private updateHUD() {
     const e = this.panelEntities['hud'];
     if (!e) return;
-    const modeNames: Record<GameMode, string> = { random: 'RANDOM', daily: 'DAILY', speed: 'SPEED', blitz: 'BLITZ', streak: 'STREAK', hard: 'HARD', blind: 'BLIND', practice: 'PRACTICE', zen: 'ZEN' };
+    const modeNames: Record<GameMode, string> = { random: 'RANDOM', daily: 'DAILY', speed: 'SPEED', blitz: 'BLITZ', streak: 'STREAK', hard: 'HARD', blind: 'BLIND', practice: 'PRACTICE', zen: 'ZEN', elimination: 'ELIM' };
     this.setText(e, 'mode-label', modeNames[this.gameMode]);
     this.setText(e, 'attempt-label', `Row ${this.currentRow + 1}/6`);
     this.setText(e, 'streak-label', `x${this.stats.currentStreak}`);
@@ -1726,7 +1905,11 @@ class NeonCipherSystem extends createSystem({
         const borderColor = isBlind ? '#555566' : (r.result === 'correct' ? '#00ff88' : r.result === 'present' ? '#ffee00' : '#555566');
         const e = this.panelEntities['board'];
         if (e) {
-          this.setProps(e, `c${r.row}${r.col}`, { text: r.letter, backgroundColor: bgColor, borderColor });
+          // Colorblind mode: add indicator to cell text
+          const cellText = this.colorblindMode && !isBlind
+            ? (r.result === 'correct' ? r.letter + '+' : r.result === 'present' ? r.letter + '?' : r.letter)
+            : r.letter;
+          this.setProps(e, `c${r.row}${r.col}`, { text: cellText, backgroundColor: bgColor, borderColor });
         }
         if (!isBlind) {
           if (r.result === 'correct') audio.revealCorrect(this.revealIdx);

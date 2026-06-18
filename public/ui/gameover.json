@@ -238,6 +238,30 @@
             "sourceTag": "text",
             "type": "custom",
             "children": [
+              "Letters: -- unique | -- vowels | -- common"
+            ],
+            "properties": {
+              "name": "word-analysis",
+              "fontsize": "11",
+              "color": "#666688"
+            },
+            "dataUid": "uid-21"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [],
+            "properties": {
+              "name": "elim-info",
+              "fontsize": "11",
+              "color": "#ff8800"
+            },
+            "dataUid": "uid-22"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
               "Mode best: --"
             ],
             "properties": {
@@ -245,7 +269,7 @@
               "fontsize": "11",
               "color": "#666688"
             },
-            "dataUid": "uid-21"
+            "dataUid": "uid-23"
           },
           {
             "sourceTag": "container",
@@ -263,7 +287,7 @@
                   "color": "#666688",
                   "fontfamily": "monospace"
                 },
-                "dataUid": "uid-23"
+                "dataUid": "uid-25"
               },
               {
                 "sourceTag": "container",
@@ -292,7 +316,7 @@
                           "borderwidth": "1",
                           "cursor": "pointer"
                         },
-                        "dataUid": "uid-26"
+                        "dataUid": "uid-28"
                       },
                       {
                         "sourceTag": "text",
@@ -314,14 +338,14 @@
                           "borderwidth": "1",
                           "cursor": "pointer"
                         },
-                        "dataUid": "uid-27"
+                        "dataUid": "uid-29"
                       }
                     ],
                     "properties": {
                       "flexdirection": "row",
                       "gap": "8"
                     },
-                    "dataUid": "uid-25"
+                    "dataUid": "uid-27"
                   },
                   {
                     "sourceTag": "container",
@@ -344,7 +368,7 @@
                           "borderradius": "4",
                           "cursor": "pointer"
                         },
-                        "dataUid": "uid-29"
+                        "dataUid": "uid-31"
                       },
                       {
                         "sourceTag": "text",
@@ -363,26 +387,26 @@
                           "borderradius": "4",
                           "cursor": "pointer"
                         },
-                        "dataUid": "uid-30"
+                        "dataUid": "uid-32"
                       }
                     ],
                     "properties": {
                       "flexdirection": "row",
                       "gap": "8"
                     },
-                    "dataUid": "uid-28"
+                    "dataUid": "uid-30"
                   }
                 ],
                 "properties": {
                   "height": "2"
                 },
-                "dataUid": "uid-24"
+                "dataUid": "uid-26"
               }
             ],
             "properties": {
               "height": "2"
             },
-            "dataUid": "uid-22"
+            "dataUid": "uid-24"
           }
         ],
         "properties": {
@@ -411,7 +435,7 @@
         "column": 0
       },
       "end": {
-        "line": 38,
+        "line": 40,
         "column": 0
       }
     },
@@ -451,7 +475,7 @@
         "column": 2
       },
       "end": {
-        "line": 38,
+        "line": 40,
         "column": 0
       }
     },
@@ -612,7 +636,7 @@
       },
       "end": {
         "line": 25,
-        "column": 77
+        "column": 108
       }
     },
     "uid-22": {
@@ -621,8 +645,8 @@
         "column": 2
       },
       "end": {
-        "line": 38,
-        "column": 0
+        "line": 26,
+        "column": 62
       }
     },
     "uid-23": {
@@ -632,7 +656,7 @@
       },
       "end": {
         "line": 27,
-        "column": 88
+        "column": 77
       }
     },
     "uid-24": {
@@ -641,8 +665,8 @@
         "column": 2
       },
       "end": {
-        "line": 37,
-        "column": 12
+        "line": 40,
+        "column": 0
       }
     },
     "uid-25": {
@@ -651,57 +675,77 @@
         "column": 2
       },
       "end": {
-        "line": 32,
-        "column": 14
+        "line": 29,
+        "column": 88
       }
     },
     "uid-26": {
       "start": {
         "line": 30,
-        "column": 4
+        "column": 2
       },
       "end": {
-        "line": 30,
-        "column": 219
+        "line": 39,
+        "column": 12
       }
     },
     "uid-27": {
       "start": {
         "line": 31,
-        "column": 4
+        "column": 2
       },
       "end": {
-        "line": 31,
-        "column": 237
+        "line": 34,
+        "column": 14
       }
     },
     "uid-28": {
       "start": {
-        "line": 33,
-        "column": 2
+        "line": 32,
+        "column": 4
       },
       "end": {
-        "line": 36,
-        "column": 14
+        "line": 32,
+        "column": 219
       }
     },
     "uid-29": {
       "start": {
-        "line": 34,
+        "line": 33,
         "column": 4
       },
       "end": {
-        "line": 34,
-        "column": 180
+        "line": 33,
+        "column": 237
       }
     },
     "uid-30": {
       "start": {
         "line": 35,
+        "column": 2
+      },
+      "end": {
+        "line": 38,
+        "column": 14
+      }
+    },
+    "uid-31": {
+      "start": {
+        "line": 36,
         "column": 4
       },
       "end": {
-        "line": 35,
+        "line": 36,
+        "column": 180
+      }
+    },
+    "uid-32": {
+      "start": {
+        "line": 37,
+        "column": 4
+      },
+      "end": {
+        "line": 37,
         "column": 174
       }
     }

@@ -26,6 +26,17 @@
     <text name="theme-name" fontSize="14" color="#ffffff">Neon Holodeck</text>
     <text name="btn-theme-next" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="2" paddingLeft="8" paddingRight="8" borderRadius="4" cursor="pointer">></text>
   </container>
+  <container height="4"/>
+  <container flexDirection="row" gap="6" alignItems="center">
+    <text fontSize="14" color="#88aacc">Colorblind</text>
+    <text name="btn-colorblind" fontSize="14" color="#ffaa00" backgroundColor="#1a1a2a" padding="2" paddingLeft="10" paddingRight="10" borderRadius="4" cursor="pointer">TOGGLE</text>
+    <text name="colorblind-val" fontSize="14" color="#ffffff">OFF</text>
+  </container>
+  <container flexDirection="row" gap="6" alignItems="center">
+    <text fontSize="14" color="#88aacc">Practice Diff</text>
+    <text name="btn-diff-next" fontSize="14" color="#44aa88" backgroundColor="#1a1a2a" padding="2" paddingLeft="10" paddingRight="10" borderRadius="4" cursor="pointer">CYCLE</text>
+    <text name="diff-val" fontSize="14" color="#ffffff">Any</text>
+  </container>
   <container height="6"/>
   <text name="btn-back" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="20" paddingRight="20" borderRadius="4" cursor="pointer">BACK</text>
 </container>

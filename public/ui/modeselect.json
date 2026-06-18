@@ -210,6 +210,27 @@
             "dataUid": "uid-12"
           },
           {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "ELIMINATION"
+            ],
+            "properties": {
+              "name": "btn-elimination",
+              "fontsize": "16",
+              "color": "#ff8800",
+              "backgroundcolor": "#1a1a3a",
+              "padding": "6",
+              "paddingleft": "28",
+              "paddingright": "28",
+              "borderradius": "6",
+              "bordercolor": "#aa5500",
+              "borderwidth": "1",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-13"
+          },
+          {
             "sourceTag": "container",
             "type": "custom",
             "children": [
@@ -230,13 +251,13 @@
                   "borderradius": "4",
                   "cursor": "pointer"
                 },
-                "dataUid": "uid-14"
+                "dataUid": "uid-15"
               }
             ],
             "properties": {
               "height": "2"
             },
-            "dataUid": "uid-13"
+            "dataUid": "uid-14"
           }
         ],
         "properties": {
@@ -265,7 +286,7 @@
         "column": 0
       },
       "end": {
-        "line": 15,
+        "line": 16,
         "column": 0
       }
     },
@@ -285,7 +306,7 @@
         "column": 2
       },
       "end": {
-        "line": 15,
+        "line": 16,
         "column": 0
       }
     },
@@ -385,8 +406,8 @@
         "column": 2
       },
       "end": {
-        "line": 14,
-        "column": 12
+        "line": 12,
+        "column": 224
       }
     },
     "uid-14": {
@@ -395,7 +416,17 @@
         "column": 2
       },
       "end": {
-        "line": 13,
+        "line": 15,
+        "column": 12
+      }
+    },
+    "uid-15": {
+      "start": {
+        "line": 14,
+        "column": 2
+      },
+      "end": {
+        "line": 14,
         "column": 172
       }
     }

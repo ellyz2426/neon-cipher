@@ -440,6 +440,19 @@
                         "dataUid": "uid-38"
                       },
                       {
+                        "sourceTag": "text",
+                        "type": "custom",
+                        "children": [
+                          "Elim: --"
+                        ],
+                        "properties": {
+                          "name": "mode-stat-9",
+                          "fontsize": "11",
+                          "color": "#88aacc"
+                        },
+                        "dataUid": "uid-39"
+                      },
+                      {
                         "sourceTag": "container",
                         "type": "custom",
                         "children": [
@@ -460,13 +473,13 @@
                               "borderradius": "4",
                               "cursor": "pointer"
                             },
-                            "dataUid": "uid-40"
+                            "dataUid": "uid-41"
                           }
                         ],
                         "properties": {
                           "height": "4"
                         },
-                        "dataUid": "uid-39"
+                        "dataUid": "uid-40"
                       }
                     ],
                     "properties": {
@@ -513,7 +526,7 @@
         "column": 0
       },
       "end": {
-        "line": 46,
+        "line": 47,
         "column": 0
       }
     },
@@ -533,7 +546,7 @@
         "column": 2
       },
       "end": {
-        "line": 46,
+        "line": 47,
         "column": 0
       }
     },
@@ -673,7 +686,7 @@
         "column": 2
       },
       "end": {
-        "line": 46,
+        "line": 47,
         "column": 0
       }
     },
@@ -753,7 +766,7 @@
         "column": 2
       },
       "end": {
-        "line": 46,
+        "line": 47,
         "column": 0
       }
     },
@@ -783,7 +796,7 @@
         "column": 2
       },
       "end": {
-        "line": 46,
+        "line": 47,
         "column": 0
       }
     },
@@ -893,8 +906,8 @@
         "column": 2
       },
       "end": {
-        "line": 45,
-        "column": 12
+        "line": 43,
+        "column": 72
       }
     },
     "uid-40": {
@@ -903,7 +916,17 @@
         "column": 2
       },
       "end": {
-        "line": 44,
+        "line": 46,
+        "column": 12
+      }
+    },
+    "uid-41": {
+      "start": {
+        "line": 45,
+        "column": 2
+      },
+      "end": {
+        "line": 45,
         "column": 172
       }
     }

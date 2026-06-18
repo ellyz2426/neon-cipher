@@ -23,6 +23,8 @@
   </container>
   <text name="diff-label" fontSize="12" color="#888888">Difficulty: Medium</text>
   <text name="words-remaining" fontSize="11" color="#44aa88">Words remaining: 12</text>
+  <text name="word-analysis" fontSize="11" color="#666688">Letters: -- unique | -- vowels | -- common</text>
+  <text name="elim-info" fontSize="11" color="#ff8800"></text>
   <text name="mode-record" fontSize="11" color="#666688">Mode best: --</text>
   <container height="2"/>
   <text name="share-text" fontSize="11" color="#666688" fontFamily="monospace">--</text>

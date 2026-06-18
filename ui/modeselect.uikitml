@@ -10,6 +10,7 @@
   <text name="btn-blind" fontSize="16" color="#666666" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#444444" borderWidth="1" cursor="pointer">BLIND (NO COLORS)</text>
   <text name="btn-practice" fontSize="16" color="#88cc88" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#448844" borderWidth="1" cursor="pointer">PRACTICE</text>
   <text name="btn-zen" fontSize="16" color="#aaccee" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#6688aa" borderWidth="1" cursor="pointer">ZEN (RELAXED)</text>
+  <text name="btn-elimination" fontSize="16" color="#ff8800" backgroundColor="#1a1a3a" padding="6" paddingLeft="28" paddingRight="28" borderRadius="6" borderColor="#aa5500" borderWidth="1" cursor="pointer">ELIMINATION</text>
   <container height="2"/>
   <text name="btn-back" fontSize="14" color="#888888" backgroundColor="#1a1a2a" padding="4" paddingLeft="20" paddingRight="20" borderRadius="4" cursor="pointer">BACK</text>
 </container>
