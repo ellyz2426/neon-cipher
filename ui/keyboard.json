@@ -1,0 +1,942 @@
+{
+  "element": {
+    "sourceTag": "container",
+    "type": "custom",
+    "children": [
+      {
+        "sourceTag": "container",
+        "type": "custom",
+        "children": [
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "Q"
+            ],
+            "properties": {
+              "name": "k-q",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-3"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "W"
+            ],
+            "properties": {
+              "name": "k-w",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-4"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "E"
+            ],
+            "properties": {
+              "name": "k-e",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-5"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "R"
+            ],
+            "properties": {
+              "name": "k-r",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-6"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "T"
+            ],
+            "properties": {
+              "name": "k-t",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-7"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "Y"
+            ],
+            "properties": {
+              "name": "k-y",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-8"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "U"
+            ],
+            "properties": {
+              "name": "k-u",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-9"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "I"
+            ],
+            "properties": {
+              "name": "k-i",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-10"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "O"
+            ],
+            "properties": {
+              "name": "k-o",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-11"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "P"
+            ],
+            "properties": {
+              "name": "k-p",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-12"
+          }
+        ],
+        "properties": {
+          "flexdirection": "row",
+          "gap": "3",
+          "justifycontent": "center"
+        },
+        "dataUid": "uid-2"
+      },
+      {
+        "sourceTag": "container",
+        "type": "custom",
+        "children": [
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "A"
+            ],
+            "properties": {
+              "name": "k-a",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-14"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "S"
+            ],
+            "properties": {
+              "name": "k-s",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-15"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "D"
+            ],
+            "properties": {
+              "name": "k-d",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-16"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "F"
+            ],
+            "properties": {
+              "name": "k-f",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-17"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "G"
+            ],
+            "properties": {
+              "name": "k-g",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-18"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "H"
+            ],
+            "properties": {
+              "name": "k-h",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-19"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "J"
+            ],
+            "properties": {
+              "name": "k-j",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-20"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "K"
+            ],
+            "properties": {
+              "name": "k-k",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-21"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "L"
+            ],
+            "properties": {
+              "name": "k-l",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-22"
+          }
+        ],
+        "properties": {
+          "flexdirection": "row",
+          "gap": "3",
+          "justifycontent": "center"
+        },
+        "dataUid": "uid-13"
+      },
+      {
+        "sourceTag": "container",
+        "type": "custom",
+        "children": [
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "ENTER"
+            ],
+            "properties": {
+              "name": "k-enter",
+              "fontsize": "14",
+              "fontweight": "bold",
+              "color": "#00ffcc",
+              "backgroundcolor": "#1a3a2a",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "bordercolor": "#00aa66",
+              "borderwidth": "1",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-24"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "Z"
+            ],
+            "properties": {
+              "name": "k-z",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-25"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "X"
+            ],
+            "properties": {
+              "name": "k-x",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-26"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "C"
+            ],
+            "properties": {
+              "name": "k-c",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-27"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "V"
+            ],
+            "properties": {
+              "name": "k-v",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-28"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "B"
+            ],
+            "properties": {
+              "name": "k-b",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-29"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "N"
+            ],
+            "properties": {
+              "name": "k-n",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-30"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "M"
+            ],
+            "properties": {
+              "name": "k-m",
+              "fontsize": "18",
+              "fontweight": "bold",
+              "color": "#ffffff",
+              "backgroundcolor": "#333355",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-31"
+          },
+          {
+            "sourceTag": "text",
+            "type": "custom",
+            "children": [
+              "DEL"
+            ],
+            "properties": {
+              "name": "k-back",
+              "fontsize": "14",
+              "fontweight": "bold",
+              "color": "#ff6644",
+              "backgroundcolor": "#3a1a1a",
+              "padding": "4",
+              "paddingleft": "8",
+              "paddingright": "8",
+              "borderradius": "4",
+              "bordercolor": "#aa4422",
+              "borderwidth": "1",
+              "cursor": "pointer"
+            },
+            "dataUid": "uid-32"
+          }
+        ],
+        "properties": {
+          "flexdirection": "row",
+          "gap": "3",
+          "justifycontent": "center"
+        },
+        "dataUid": "uid-23"
+      }
+    ],
+    "properties": {
+      "flexdirection": "column",
+      "alignitems": "center",
+      "gap": "3",
+      "padding": "8",
+      "backgroundcolor": "#0a0a1a",
+      "borderradius": "8",
+      "bordercolor": "#00ccff",
+      "borderwidth": "1"
+    },
+    "dataUid": "uid-1"
+  },
+  "classes": {},
+  "ranges": {
+    "uid-1": {
+      "start": {
+        "line": 0,
+        "column": 0
+      },
+      "end": {
+        "line": 35,
+        "column": 12
+      }
+    },
+    "uid-2": {
+      "start": {
+        "line": 1,
+        "column": 2
+      },
+      "end": {
+        "line": 12,
+        "column": 14
+      }
+    },
+    "uid-3": {
+      "start": {
+        "line": 2,
+        "column": 4
+      },
+      "end": {
+        "line": 2,
+        "column": 182
+      }
+    },
+    "uid-4": {
+      "start": {
+        "line": 3,
+        "column": 4
+      },
+      "end": {
+        "line": 3,
+        "column": 182
+      }
+    },
+    "uid-5": {
+      "start": {
+        "line": 4,
+        "column": 4
+      },
+      "end": {
+        "line": 4,
+        "column": 182
+      }
+    },
+    "uid-6": {
+      "start": {
+        "line": 5,
+        "column": 4
+      },
+      "end": {
+        "line": 5,
+        "column": 182
+      }
+    },
+    "uid-7": {
+      "start": {
+        "line": 6,
+        "column": 4
+      },
+      "end": {
+        "line": 6,
+        "column": 182
+      }
+    },
+    "uid-8": {
+      "start": {
+        "line": 7,
+        "column": 4
+      },
+      "end": {
+        "line": 7,
+        "column": 182
+      }
+    },
+    "uid-9": {
+      "start": {
+        "line": 8,
+        "column": 4
+      },
+      "end": {
+        "line": 8,
+        "column": 182
+      }
+    },
+    "uid-10": {
+      "start": {
+        "line": 9,
+        "column": 4
+      },
+      "end": {
+        "line": 9,
+        "column": 182
+      }
+    },
+    "uid-11": {
+      "start": {
+        "line": 10,
+        "column": 4
+      },
+      "end": {
+        "line": 10,
+        "column": 182
+      }
+    },
+    "uid-12": {
+      "start": {
+        "line": 11,
+        "column": 4
+      },
+      "end": {
+        "line": 11,
+        "column": 182
+      }
+    },
+    "uid-13": {
+      "start": {
+        "line": 13,
+        "column": 2
+      },
+      "end": {
+        "line": 23,
+        "column": 14
+      }
+    },
+    "uid-14": {
+      "start": {
+        "line": 14,
+        "column": 4
+      },
+      "end": {
+        "line": 14,
+        "column": 182
+      }
+    },
+    "uid-15": {
+      "start": {
+        "line": 15,
+        "column": 4
+      },
+      "end": {
+        "line": 15,
+        "column": 182
+      }
+    },
+    "uid-16": {
+      "start": {
+        "line": 16,
+        "column": 4
+      },
+      "end": {
+        "line": 16,
+        "column": 182
+      }
+    },
+    "uid-17": {
+      "start": {
+        "line": 17,
+        "column": 4
+      },
+      "end": {
+        "line": 17,
+        "column": 182
+      }
+    },
+    "uid-18": {
+      "start": {
+        "line": 18,
+        "column": 4
+      },
+      "end": {
+        "line": 18,
+        "column": 182
+      }
+    },
+    "uid-19": {
+      "start": {
+        "line": 19,
+        "column": 4
+      },
+      "end": {
+        "line": 19,
+        "column": 182
+      }
+    },
+    "uid-20": {
+      "start": {
+        "line": 20,
+        "column": 4
+      },
+      "end": {
+        "line": 20,
+        "column": 182
+      }
+    },
+    "uid-21": {
+      "start": {
+        "line": 21,
+        "column": 4
+      },
+      "end": {
+        "line": 21,
+        "column": 182
+      }
+    },
+    "uid-22": {
+      "start": {
+        "line": 22,
+        "column": 4
+      },
+      "end": {
+        "line": 22,
+        "column": 182
+      }
+    },
+    "uid-23": {
+      "start": {
+        "line": 24,
+        "column": 2
+      },
+      "end": {
+        "line": 34,
+        "column": 14
+      }
+    },
+    "uid-24": {
+      "start": {
+        "line": 25,
+        "column": 4
+      },
+      "end": {
+        "line": 25,
+        "column": 228
+      }
+    },
+    "uid-25": {
+      "start": {
+        "line": 26,
+        "column": 4
+      },
+      "end": {
+        "line": 26,
+        "column": 182
+      }
+    },
+    "uid-26": {
+      "start": {
+        "line": 27,
+        "column": 4
+      },
+      "end": {
+        "line": 27,
+        "column": 182
+      }
+    },
+    "uid-27": {
+      "start": {
+        "line": 28,
+        "column": 4
+      },
+      "end": {
+        "line": 28,
+        "column": 182
+      }
+    },
+    "uid-28": {
+      "start": {
+        "line": 29,
+        "column": 4
+      },
+      "end": {
+        "line": 29,
+        "column": 182
+      }
+    },
+    "uid-29": {
+      "start": {
+        "line": 30,
+        "column": 4
+      },
+      "end": {
+        "line": 30,
+        "column": 182
+      }
+    },
+    "uid-30": {
+      "start": {
+        "line": 31,
+        "column": 4
+      },
+      "end": {
+        "line": 31,
+        "column": 182
+      }
+    },
+    "uid-31": {
+      "start": {
+        "line": 32,
+        "column": 4
+      },
+      "end": {
+        "line": 32,
+        "column": 182
+      }
+    },
+    "uid-32": {
+      "start": {
+        "line": 33,
+        "column": 4
+      },
+      "end": {
+        "line": 33,
+        "column": 225
+      }
+    }
+  }
+}
