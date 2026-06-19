@@ -1,6 +1,6 @@
 // Neon Cipher VR — Word Deduction Puzzle (Wordle-style)
 // Build #56 — First word-puzzle genre in the portfolio
-// Round 3: 9 modes (zen), 100 achievements, 10 themes, remaining words tracker, per-mode stats
+// Round 5: 11 modes (+cascade), 150 achievements, 15 themes, enhanced analytics, session stats
 
 import {
   World,
@@ -209,7 +209,7 @@ const VALID_SET = new Set([...ANSWERS, ...EXTRA_VALID]);
 
 // --- TYPES & CONSTANTS ---
 type GameScreen = 'title' | 'modeselect' | 'playing' | 'gameover' | 'stats' | 'achievements' | 'settings' | 'help' | 'leaderboard' | 'pause' | 'countdown' | 'history';
-type GameMode = 'random' | 'daily' | 'speed' | 'blitz' | 'streak' | 'hard' | 'blind' | 'practice' | 'zen' | 'elimination';
+type GameMode = 'random' | 'daily' | 'speed' | 'blitz' | 'streak' | 'hard' | 'blind' | 'practice' | 'zen' | 'elimination' | 'cascade';
 type LetterResult = 'correct' | 'present' | 'absent' | 'empty';
 
 interface GuessResult { letter: string; result: LetterResult; }
@@ -236,6 +236,9 @@ const THEMES = [
   { name: 'Cherry Blossom', grid: '#ff88aa', accent: '#ffbbcc', bg: '#0f0508', fog: '#0a0004', wall: '#331122', correct: '#00cc44', present: '#ccaa00', absent: '#332233' },
   { name: 'Electric Storm', grid: '#ffee00', accent: '#ffff66', bg: '#0a0a05', fog: '#080800', wall: '#222200', correct: '#00cc44', present: '#ccaa00', absent: '#333322' },
   { name: 'Frost Matrix', grid: '#aaddff', accent: '#ccefff', bg: '#050a10', fog: '#020818', wall: '#0a2244', correct: '#00cc44', present: '#ccaa00', absent: '#223344' },
+  { name: 'Jade Temple', grid: '#00cc88', accent: '#44ffaa', bg: '#030f08', fog: '#001808', wall: '#003322', correct: '#00cc44', present: '#ccaa00', absent: '#223333' },
+  { name: 'Phantom Circuit', grid: '#cc44cc', accent: '#ee66ee', bg: '#0a050a', fog: '#080008', wall: '#330033', correct: '#00cc44', present: '#ccaa00', absent: '#332233' },
+  { name: 'Solar Eclipse', grid: '#ff4400', accent: '#ff6622', bg: '#0a0300', fog: '#080200', wall: '#331100', correct: '#00cc44', present: '#ccaa00', absent: '#332211' },
 ];
 
 const TITLES = ['Novice','Beginner','Speller','Decoder','Cipher','Linguist','Scholar','Expert','Master','Sage',
@@ -410,6 +413,49 @@ const ACHIEVEMENTS_DEF: { id: string; name: string; desc: string }[] = [
   { id: 'slow_win', name: 'Patient', desc: 'Win taking over 5 minutes' },
   // Colorblind
   { id: 'colorblind_win', name: 'Accessible', desc: 'Win with colorblind mode on' },
+  // Cascade mode
+  { id: 'cascade_win', name: 'Cascader', desc: 'Win Cascade mode' },
+  { id: 'cascade_3', name: 'Cascade Master', desc: '3 Cascade wins' },
+  { id: 'cascade_10', name: 'Cascade Legend', desc: '10 Cascade wins' },
+  { id: 'cascade_perfect', name: 'No Pressure', desc: 'Win Cascade without losing a row' },
+  // All 11 modes
+  { id: 'all_11_modes', name: 'True Completionist', desc: 'Win in all 11 modes' },
+  // Consistency
+  { id: 'avg_3', name: 'Consistent Solver', desc: 'Average guesses below 3.5' },
+  { id: 'avg_4', name: 'Reliable', desc: '50+ games with avg below 4.0' },
+  // Exploration
+  { id: 'play_all_themes', name: 'World Traveler', desc: 'Play a game in all 15 themes' },
+  { id: 'win_15_themes', name: 'Universal Champion', desc: 'Win in all 15 themes' },
+  // Speed tiers
+  { id: 'speed_120left', name: 'Time Lord', desc: 'Win Speed with 120s+ left' },
+  { id: 'blitz_25left', name: 'Blitz Prodigy', desc: 'Win Blitz with 25s+ left' },
+  // Advanced streaks
+  { id: 'streak_200', name: 'Eternal', desc: '200 wins in a row' },
+  { id: 'daily_streak_60', name: 'Two Months', desc: '60-day daily streak' },
+  // Efficiency
+  { id: 'perfect_5', name: 'Lucky Five', desc: '5 first-guess wins total' },
+  { id: 'perfect_10', name: 'Oracle Supreme', desc: '10 first-guess wins total' },
+  // Session endurance
+  { id: 'session_20', name: 'Iron Will Session', desc: '20 games in one session' },
+  { id: 'session_wins_15', name: 'Session Dominator', desc: '15 wins in one session' },
+  // Guess pattern
+  { id: 'no_repeat_guess', name: 'Fresh Letters', desc: 'Win using no repeated letters across guesses' },
+  { id: 'all_different_first', name: 'Alphabet Spread', desc: 'Use 15+ unique letters in first 3 guesses' },
+  // Score milestones
+  { id: 'total_score_5000', name: 'Score Collector', desc: '5000+ total leaderboard score' },
+  { id: 'total_score_10000', name: 'Score Legend', desc: '10000+ total leaderboard score' },
+  // Word mastery
+  { id: 'win_100_unique', name: 'Vocabulary 100', desc: 'Win with 100 unique words' },
+  { id: 'win_200_unique', name: 'Vocabulary 200', desc: 'Win with 200 unique words' },
+  // Time played
+  { id: 'time_60min', name: 'Hour Player', desc: '60+ minutes total play time' },
+  { id: 'time_300min', name: 'Dedicated Player', desc: '5+ hours total play time' },
+  // Losing with grace
+  { id: 'lose_10', name: 'Learning Curve', desc: 'Lose 10 games' },
+  { id: 'lose_then_win_5', name: 'Bounce Back', desc: 'Win 5 in a row after a loss' },
+  // XP
+  { id: 'xp_25000', name: 'XP Emperor', desc: 'Earn 25000+ total XP' },
+  { id: 'xp_50000', name: 'XP Overlord', desc: 'Earn 50000+ total XP' },
 ];
 
 // --- SEEDED PRNG ---
@@ -551,6 +597,17 @@ function loadSessionWins(): number { try { const raw = localStorage.getItem(STOR
 function saveSessionWins(n: number) { try { localStorage.setItem(STORAGE_KEY + '-session-wins', String(n)); } catch {} }
 function loadFastWinStreak(): number { try { const raw = localStorage.getItem(STORAGE_KEY + '-fast-streak'); if (raw) return parseInt(raw); } catch {} return 0; }
 function saveFastWinStreak(n: number) { try { localStorage.setItem(STORAGE_KEY + '-fast-streak', String(n)); } catch {} }
+function loadCascadeWins(): number { try { const raw = localStorage.getItem(STORAGE_KEY + '-cascade-wins'); if (raw) return parseInt(raw); } catch {} return 0; }
+function saveCascadeWins(n: number) { try { localStorage.setItem(STORAGE_KEY + '-cascade-wins', String(n)); } catch {} }
+function loadUniqueWordsWon(): Set<string> {
+  try { const raw = localStorage.getItem(STORAGE_KEY + '-unique-words'); if (raw) return new Set(JSON.parse(raw)); } catch {}
+  return new Set();
+}
+function saveUniqueWordsWon(s: Set<string>) { try { localStorage.setItem(STORAGE_KEY + '-unique-words', JSON.stringify([...s].slice(0, 500))); } catch {} }
+function loadTotalScore(): number { try { const raw = localStorage.getItem(STORAGE_KEY + '-total-score'); if (raw) return parseInt(raw); } catch {} return 0; }
+function saveTotalScore(n: number) { try { localStorage.setItem(STORAGE_KEY + '-total-score', String(n)); } catch {} }
+function loadLosses(): number { try { const raw = localStorage.getItem(STORAGE_KEY + '-losses'); if (raw) return parseInt(raw); } catch {} return 0; }
+function saveLosses(n: number) { try { localStorage.setItem(STORAGE_KEY + '-losses', String(n)); } catch {} }
 
 // --- REMAINING WORDS FILTER ---
 function getPossibleWords(guesses: string[], target: string): string[] {
@@ -843,6 +900,13 @@ class NeonCipherSystem extends createSystem({
   private firstGuessTotal = loadFirstGuessTotal();
   private sessionWinCount = 0;
   private fastWinStreak = loadFastWinStreak();
+  private cascadeWins = loadCascadeWins();
+  private cascadeRowsLost = 0;
+  private cascadeMaxRow = 6;
+  private uniqueWordsWon = loadUniqueWordsWon();
+  private totalScore = loadTotalScore();
+  private totalLosses = loadLosses();
+  private winAfterLossStreak = 0;
 
   // Environment refs
   private envMeshes: Mesh[] = [];
@@ -930,6 +994,7 @@ class NeonCipherSystem extends createSystem({
         btn('btn-practice', () => this.startCountdown('practice'));
         btn('btn-zen', () => this.startCountdown('zen'));
         btn('btn-elimination', () => this.startCountdown('elimination'));
+        btn('btn-cascade', () => this.startCountdown('cascade'));
         btn('btn-back', () => this.setScreen('title'));
         break;
       case 'kb':
@@ -1054,6 +1119,8 @@ class NeonCipherSystem extends createSystem({
     this.speedTimeLeft = mode === 'blitz' ? 30 : 120;
     this.elimRemovedCount = 0;
     this.elimDisabledLetters.clear();
+    this.cascadeRowsLost = 0;
+    this.cascadeMaxRow = 6;
 
     // Track first-time mode plays
     if (mode === 'blitz') this.unlockAch('first_blitz');
@@ -1299,9 +1366,31 @@ class NeonCipherSystem extends createSystem({
       }
     }
 
+    // Cascade mode: each wrong guess reduces available rows by 1
+    if (this.gameMode === 'cascade') {
+      const allCorrect = results.every(r => r.result === 'correct');
+      if (!allCorrect) {
+        this.cascadeRowsLost++;
+        this.cascadeMaxRow = Math.max(this.currentRow + 1, 6 - this.cascadeRowsLost);
+        // Gray out lost row cells
+        const e = this.panelEntities['board'];
+        if (e) {
+          for (let r = this.cascadeMaxRow; r < 6; r++) {
+            for (let c = 0; c < 5; c++) {
+              this.setProps(e, `c${r}${c}`, { text: 'X', backgroundColor: '#111122', borderColor: '#222233', color: '#333344' });
+            }
+          }
+        }
+        if (this.cascadeMaxRow > this.currentRow) {
+          this.showToast(`Row removed! ${this.cascadeMaxRow - this.currentRow} left`);
+        }
+      }
+    }
+
     const allCorrect = results.every(r => r.result === 'correct');
     if (allCorrect) { this.won = true; this.gameOver = true; this.onGameEnd(); }
     else if (this.currentRow >= 6) { this.won = false; this.gameOver = true; this.onGameEnd(); }
+    else if (this.gameMode === 'cascade' && this.currentRow >= this.cascadeMaxRow) { this.won = false; this.gameOver = true; this.onGameEnd(); }
   }
 
   private updateKeyboardColors() {
@@ -1401,6 +1490,26 @@ class NeonCipherSystem extends createSystem({
     if (this.gameMode === 'blind' && this.won) { this.blindWins++; saveBlindWins(this.blindWins); }
     if (this.gameMode === 'zen' && this.won) { this.zenWins++; saveZenWins(this.zenWins); }
     if (this.gameMode === 'elimination' && this.won) { this.elimWins++; saveElimWins(this.elimWins); }
+    if (this.gameMode === 'cascade' && this.won) { this.cascadeWins++; saveCascadeWins(this.cascadeWins); }
+
+    // Unique words won tracking
+    if (this.won) {
+      this.uniqueWordsWon.add(this.targetWord);
+      saveUniqueWordsWon(this.uniqueWordsWon);
+    }
+
+    // Total score tracking
+    if (this.won) {
+      const gameScore = Math.round((7 - guessCount) * 100 + Math.max(0, 300 - this.elapsed));
+      this.totalScore += gameScore;
+      saveTotalScore(this.totalScore);
+    }
+
+    // Loss tracking
+    if (!this.won) {
+      this.totalLosses++;
+      saveLosses(this.totalLosses);
+    }
 
     // Session wins tracking
     if (this.won) { this.sessionWinCount++; }
@@ -1451,7 +1560,7 @@ class NeonCipherSystem extends createSystem({
     this.setText(e, 'result-title', this.won ? 'DECODED!' : 'FAILED');
     this.setProps(e, 'result-title', { color: this.won ? '#00ff88' : '#ff4444' });
     this.setText(e, 'answer-label', this.targetWord);
-    const modeNames2: Record<GameMode, string> = { random: 'Random', daily: 'Daily', speed: 'Speed', blitz: 'Blitz', streak: 'Streak', hard: 'Hard', blind: 'Blind', practice: 'Practice', zen: 'Zen', elimination: 'Elimination' };
+    const modeNames2: Record<GameMode, string> = { random: 'Random', daily: 'Daily', speed: 'Speed', blitz: 'Blitz', streak: 'Streak', hard: 'Hard', blind: 'Blind', practice: 'Practice', zen: 'Zen', elimination: 'Elimination', cascade: 'Cascade' };
     this.setText(e, 'mode-info', `Mode: ${modeNames2[this.gameMode]}`);
     this.setText(e, 'guesses-val', `${this.guesses.length}/6`);
     const mins = Math.floor(this.elapsed / 60);
@@ -1637,6 +1746,87 @@ class NeonCipherSystem extends createSystem({
     // All 10 modes
     if (this.modesWon.size >= 10) unlock('all_10_modes');
 
+    // All 11 modes
+    if (this.modesWon.size >= 11) unlock('all_11_modes');
+
+    // Cascade mode
+    if (this.gameMode === 'cascade' && this.won) {
+      unlock('cascade_win');
+      if (this.cascadeWins >= 3) unlock('cascade_3');
+      if (this.cascadeWins >= 10) unlock('cascade_10');
+      if (this.cascadeRowsLost === 0) unlock('cascade_perfect');
+    }
+
+    // Speed/Blitz time left
+    if (this.gameMode === 'speed' && this.won && this.speedTimeLeft >= 120) unlock('speed_120left');
+    if (this.gameMode === 'blitz' && this.won && this.speedTimeLeft >= 25) unlock('blitz_25left');
+
+    // Advanced streaks
+    if (this.stats.currentStreak >= 200) unlock('streak_200');
+    if (this.dailyStreak >= 60) unlock('daily_streak_60');
+
+    // First-guess totals
+    if (this.firstGuessTotal >= 2) unlock('all_green_twice');
+    if (this.firstGuessTotal >= 5) unlock('perfect_5');
+    if (this.firstGuessTotal >= 10) unlock('perfect_10');
+
+    // Session endurance
+    if (this.sessionGames >= 20) unlock('session_20');
+    if (this.sessionWinCount >= 15) unlock('session_wins_15');
+
+    // Average guesses efficiency
+    if (this.stats.gamesWon >= 50) {
+      const avg = this.stats.totalGuesses / this.stats.gamesWon;
+      if (avg < 3.5) unlock('avg_3');
+      if (avg < 4.0) unlock('avg_4');
+    }
+
+    // Total score milestones
+    if (this.totalScore >= 5000) unlock('total_score_5000');
+    if (this.totalScore >= 10000) unlock('total_score_10000');
+
+    // Unique words mastery
+    if (this.uniqueWordsWon.size >= 100) unlock('win_100_unique');
+    if (this.uniqueWordsWon.size >= 200) unlock('win_200_unique');
+
+    // Time played milestones
+    if (this.stats.totalTime >= 3600) unlock('time_60min');
+    if (this.stats.totalTime >= 18000) unlock('time_300min');
+
+    // Loss achievements
+    if (this.totalLosses >= 10) unlock('lose_10');
+    if (this.won && this.stats.currentStreak >= 5 && this.totalLosses > 0) unlock('lose_then_win_5');
+
+    // XP milestones
+    if (this.totalXpEarned >= 25000) unlock('xp_25000');
+    if (this.totalXpEarned >= 50000) unlock('xp_50000');
+
+    // Theme mastery (all 15)
+    if (this.themesUsed.size >= THEMES.length) unlock('play_all_themes');
+    if (this.themeWins.size >= THEMES.length) unlock('win_15_themes');
+
+    // Guess pattern achievements
+    if (this.won && this.guesses.length >= 2) {
+      // No repeated letters across all guesses
+      const allLettersUsed = new Set<string>();
+      let noRepeats = true;
+      for (const guess of this.guesses) {
+        for (const l of guess) {
+          if (allLettersUsed.has(l)) { noRepeats = false; break; }
+          allLettersUsed.add(l);
+        }
+        if (!noRepeats) break;
+      }
+      if (noRepeats) unlock('no_repeat_guess');
+
+      // 15+ unique letters in first 3 guesses
+      if (this.guesses.length >= 3) {
+        const first3Letters = new Set<string>();
+        for (let i = 0; i < 3; i++) for (const l of this.guesses[i]) first3Letters.add(l);
+        if (first3Letters.size >= 15) unlock('all_different_first');
+      }
+    }
+
     // Score-based
     if (this.won) {
       const score = Math.round((7 - gc) * 100 + Math.max(0, 300 - this.elapsed));
@@ -1650,16 +1840,15 @@ class NeonCipherSystem extends createSystem({
 
     // Pattern achievements
     if (this.won) {
-      const firstGuess = this.guesses[0];
-      const commonLetters = 'EARIOT';
-      const usesNoCommon = !firstGuess.split('').some(l => commonLetters.includes(l));
+      const firstGuess2 = this.guesses[0];
+      const commonLetters2 = 'EARIOT';
+      const usesNoCommon = !firstGuess2.split('').some(l => commonLetters2.includes(l));
       if (usesNoCommon && gc <= 3) unlock('win_no_common');
-      const vowels = 'AEIOU';
-      const firstHasAllVowels = vowels.split('').every(v => firstGuess.includes(v));
+      const vowels2 = 'AEIOU';
+      const firstHasAllVowels = vowels2.split('').every(v => firstGuess2.includes(v));
       if (firstHasAllVowels) unlock('all_vowel_first');
-      // No absent letters in the game
-      const allResults = this.guesses.map(g => evaluateGuess(g, this.targetWord));
-      const hasAnyAbsent = allResults.some(r => r.some(c => c.result === 'absent'));
+      const allResults2 = this.guesses.map(g => evaluateGuess(g, this.targetWord));
+      const hasAnyAbsent = allResults2.some(r => r.some(c => c.result === 'absent'));
       if (!hasAnyAbsent) unlock('no_absent_win');
     }
 
@@ -1673,9 +1862,6 @@ class NeonCipherSystem extends createSystem({
 
     // Total wins
     if (this.stats.gamesWon >= 1000) unlock('total_wins_1000');
-
-    // First-guess total
-    if (this.firstGuessTotal >= 2) unlock('all_green_twice');
 
     // Colorblind win
     if (this.colorblindMode && this.won) unlock('colorblind_win');
@@ -1710,8 +1896,8 @@ class NeonCipherSystem extends createSystem({
     this.setText(e, 'stat-avg', `Avg guesses: ${avgGuesses}`);
     this.setText(e, 'stat-time', `Avg time: ${avgTime > 0 ? avgTime + 's' : '--'}`);
     // Mode records
-    const allModes: GameMode[] = ['random', 'daily', 'speed', 'blitz', 'hard', 'blind', 'streak', 'practice', 'zen', 'elimination'];
-    const modeLabels: Record<string, string> = { random: 'Random', daily: 'Daily', speed: 'Speed', blitz: 'Blitz', hard: 'Hard', blind: 'Blind', streak: 'Streak', practice: 'Practice', zen: 'Zen', elimination: 'Elim' };
+    const allModes: GameMode[] = ['random', 'daily', 'speed', 'blitz', 'hard', 'blind', 'streak', 'practice', 'zen', 'elimination', 'cascade'];
+    const modeLabels: Record<string, string> = { random: 'Random', daily: 'Daily', speed: 'Speed', blitz: 'Blitz', hard: 'Hard', blind: 'Blind', streak: 'Streak', practice: 'Practice', zen: 'Zen', elimination: 'Elim', cascade: 'Cascade' };
     allModes.forEach((mode, i) => {
       const ms = this.modeStats[mode];
       if (ms && ms.played > 0) {
@@ -1821,7 +2007,7 @@ class NeonCipherSystem extends createSystem({
   private updateHUD() {
     const e = this.panelEntities['hud'];
     if (!e) return;
-    const modeNames: Record<GameMode, string> = { random: 'RANDOM', daily: 'DAILY', speed: 'SPEED', blitz: 'BLITZ', streak: 'STREAK', hard: 'HARD', blind: 'BLIND', practice: 'PRACTICE', zen: 'ZEN', elimination: 'ELIM' };
+    const modeNames: Record<GameMode, string> = { random: 'RANDOM', daily: 'DAILY', speed: 'SPEED', blitz: 'BLITZ', streak: 'STREAK', hard: 'HARD', blind: 'BLIND', practice: 'PRACTICE', zen: 'ZEN', elimination: 'ELIM', cascade: 'CASCADE' };
     this.setText(e, 'mode-label', modeNames[this.gameMode]);
     this.setText(e, 'attempt-label', `Row ${this.currentRow + 1}/6`);
     this.setText(e, 'streak-label', `x${this.stats.currentStreak}`);
